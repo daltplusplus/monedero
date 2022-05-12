@@ -31,12 +31,12 @@ public class Cuenta {
       throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
     }
 
-    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {//no revisa si realmente son de hoy
+    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito() && movimiento.getFecha().equals(LocalDate.now())).count() >= 3) {//no revisa si realmente son de hoy
       throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
     }
 
     //new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
-    agregarMovimiento(LocalDate.now(), cuanto, false);
+    agregarMovimiento(LocalDate.now(), cuanto, true);
   }
 
   public void sacar(double cuanto) {
