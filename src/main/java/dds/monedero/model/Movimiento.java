@@ -29,7 +29,7 @@ public class Movimiento {
   }
 
   public boolean fueExtraido(LocalDate fecha) {
-    return isExtraccion() && esDeLaFecha(fecha);
+    return !isDeposito() && esDeLaFecha(fecha);
   }
 
   public boolean esDeLaFecha(LocalDate fecha) {
@@ -39,12 +39,12 @@ public class Movimiento {
   public boolean isDeposito() {
     return esDeposito;
   }
-
-  public boolean isExtraccion() {
+/*
+  public boolean isExtraccion() {//redundante
     return !esDeposito;
   }
-
-  public void agregateA(Cuenta cuenta) {
+*/
+  public void agregateA(Cuenta cuenta) {//lo unico que hace es enviar mensajes a cuenta. deberia ser entonces un metodo de cuenta.
     cuenta.setSaldo(calcularValor(cuenta));
     cuenta.agregarMovimiento(fecha, monto, esDeposito);
   }
