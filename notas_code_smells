@@ -1,0 +1,5 @@
+1- el metodo poner dentro de la clase cuenta no se fija si realmente la fecha de los movimientos es igual a la de hoy
+2- es redundante poner un metodo isExtraccion cuando es exactamente lo opuesto que isDeposito
+3- el metodo agregateA de movimiento lo unico que hace es pasar a movimiento como parametro a cuenta. seria mejor que cuenta tenga su
+propio metodo para agregar movimientos
+4- no tiene sentido que cuenta use getSaldo cuando enrealidad puede simplemente usar saldo
