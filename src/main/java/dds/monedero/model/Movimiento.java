@@ -43,12 +43,12 @@ public class Movimiento {
   public boolean isExtraccion() {//redundante
     return !esDeposito;
   }
-*/
+
   public void agregateA(Cuenta cuenta) {//lo unico que hace es enviar mensajes a cuenta. deberia ser entonces un metodo de cuenta.
     cuenta.setSaldo(calcularValor(cuenta));
     cuenta.agregarMovimiento(fecha, monto, esDeposito);
   }
-
+*/
   public double calcularValor(Cuenta cuenta) {
     if (esDeposito) {
       return cuenta.getSaldo() + getMonto();
